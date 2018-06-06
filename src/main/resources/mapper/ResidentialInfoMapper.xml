@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fdc.active.dao.ResidentialInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.fdc.active.domain.ResidentialInfo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="residential_name" property="residentialName" jdbcType="VARCHAR" />
+    <result column="loop_line_id" property="loopLineId" jdbcType="VARCHAR" />
+    <result column="x_site" property="xSite" jdbcType="DOUBLE" />
+    <result column="y_site" property="ySite" jdbcType="DOUBLE" />
+    <result column="create_time" property="createTime" jdbcType="BIGINT" />
+    <result column="update_time" property="updateTime" jdbcType="BIGINT" />
+    <result column="audit_status" property="auditStatus" jdbcType="VARCHAR" />
+    <result column="is_recommend" property="isRecommend" jdbcType="VARCHAR" />
+    <result column="district_id" property="districtId" jdbcType="VARCHAR" />
+    <result column="district_name" property="districtName" jdbcType="VARCHAR" />
+    <result column="district_sub_id" property="districtSubId" jdbcType="VARCHAR" />
+    <result column="district_sub_name" property="districtSubName" jdbcType="VARCHAR" />
+    <result column="city_id" property="cityId" jdbcType="VARCHAR" />
+    <result column="residential_nick_name" property="residentialNickName" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="del_state" property="delState" jdbcType="VARCHAR" />
+    <result column="province_name" property="provinceName" jdbcType="VARCHAR" />
+    <result column="province_id" property="provinceId" jdbcType="VARCHAR" />
+    <result column="city_name" property="cityName" jdbcType="VARCHAR" />
+    <result column="district_short_key" property="districtShortKey" jdbcType="VARCHAR" />
+    <result column="district_sub_short_key" property="districtSubShortKey" jdbcType="VARCHAR" />
+    <result column="pinyin" property="pinyin" jdbcType="VARCHAR" />
+    <result column="sharding_id" property="shardingId" jdbcType="VARCHAR" />
+    <result column="public_time" property="publicTime" jdbcType="BIGINT" />
+    <result column="trading_area" property="tradingArea" jdbcType="VARCHAR" />
+    <result column="business_zone" property="businessZone" jdbcType="VARCHAR" />
+    <result column="old_short_key" property="oldShortKey" jdbcType="VARCHAR" />
+    <result column="old_district_sub_name" property="oldDistrictSubName" jdbcType="VARCHAR" />
+    <result column="new_short_key" property="newShortKey" jdbcType="VARCHAR" />
+    <result column="new_district_sub_name" property="newDistrictSubName" jdbcType="VARCHAR" />
+    <result column="total_floor_area" property="totalFloorArea" jdbcType="INTEGER" />
+    <result column="used_land_area" property="usedLandArea" jdbcType="INTEGER" />
+    <result column="no_limit_area" property="noLimitArea" jdbcType="VARCHAR" />
+    <result column="residential_infocol" property="residentialInfocol" jdbcType="VARCHAR" />
+    <result column="telling_you" property="tellingYou" jdbcType="VARCHAR" />
+    <result column="base_district_sub_id" property="baseDistrictSubId" jdbcType="VARCHAR" />
+    <result column="base_district_sub_name" property="baseDistrictSubName" jdbcType="VARCHAR" />
+    <result column="record_source" property="recordSource" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.fdc.active.domain.ResidentialInfo" extends="BaseResultMap" >
+    <result column="points" property="points" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, residential_name, loop_line_id, x_site, y_site, create_time, update_time, audit_status, 
+    is_recommend, district_id, district_name, district_sub_id, district_sub_name, city_id, 
+    residential_nick_name, address, del_state, province_name, province_id, city_name, 
+    district_short_key, district_sub_short_key, pinyin, sharding_id, public_time, trading_area, 
+    business_zone, old_short_key, old_district_sub_name, new_short_key, new_district_sub_name, 
+    total_floor_area, used_land_area, no_limit_area, residential_infocol, telling_you, 
+    base_district_sub_id, base_district_sub_name, record_source
+  </sql>
+  <sql id="Blob_Column_List" >
+    points
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from residential_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from residential_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.fdc.active.domain.ResidentialInfo" >
+    insert into residential_info (id, residential_name, loop_line_id, 
+      x_site, y_site, create_time, 
+      update_time, audit_status, is_recommend, 
+      district_id, district_name, district_sub_id, 
+      district_sub_name, city_id, residential_nick_name, 
+      address, del_state, province_name, 
+      province_id, city_name, district_short_key, 
+      district_sub_short_key, pinyin, sharding_id, 
+      public_time, trading_area, business_zone, 
+      old_short_key, old_district_sub_name, new_short_key, 
+      new_district_sub_name, total_floor_area, used_land_area, 
+      no_limit_area, residential_infocol, telling_you, 
+      base_district_sub_id, base_district_sub_name, 
+      record_source, points)
+    values (#{id,jdbcType=VARCHAR}, #{residentialName,jdbcType=VARCHAR}, #{loopLineId,jdbcType=VARCHAR}, 
+      #{xSite,jdbcType=DOUBLE}, #{ySite,jdbcType=DOUBLE}, #{createTime,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=BIGINT}, #{auditStatus,jdbcType=VARCHAR}, #{isRecommend,jdbcType=VARCHAR}, 
+      #{districtId,jdbcType=VARCHAR}, #{districtName,jdbcType=VARCHAR}, #{districtSubId,jdbcType=VARCHAR}, 
+      #{districtSubName,jdbcType=VARCHAR}, #{cityId,jdbcType=VARCHAR}, #{residentialNickName,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{delState,jdbcType=VARCHAR}, #{provinceName,jdbcType=VARCHAR}, 
+      #{provinceId,jdbcType=VARCHAR}, #{cityName,jdbcType=VARCHAR}, #{districtShortKey,jdbcType=VARCHAR}, 
+      #{districtSubShortKey,jdbcType=VARCHAR}, #{pinyin,jdbcType=VARCHAR}, #{shardingId,jdbcType=VARCHAR}, 
+      #{publicTime,jdbcType=BIGINT}, #{tradingArea,jdbcType=VARCHAR}, #{businessZone,jdbcType=VARCHAR}, 
+      #{oldShortKey,jdbcType=VARCHAR}, #{oldDistrictSubName,jdbcType=VARCHAR}, #{newShortKey,jdbcType=VARCHAR}, 
+      #{newDistrictSubName,jdbcType=VARCHAR}, #{totalFloorArea,jdbcType=INTEGER}, #{usedLandArea,jdbcType=INTEGER}, 
+      #{noLimitArea,jdbcType=VARCHAR}, #{residentialInfocol,jdbcType=VARCHAR}, #{tellingYou,jdbcType=VARCHAR}, 
+      #{baseDistrictSubId,jdbcType=VARCHAR}, #{baseDistrictSubName,jdbcType=VARCHAR}, 
+      #{recordSource,jdbcType=VARCHAR}, #{points,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fdc.active.domain.ResidentialInfo" >
+    insert into residential_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="residentialName != null" >
+        residential_name,
+      </if>
+      <if test="loopLineId != null" >
+        loop_line_id,
+      </if>
+      <if test="xSite != null" >
+        x_site,
+      </if>
+      <if test="ySite != null" >
+        y_site,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="auditStatus != null" >
+        audit_status,
+      </if>
+      <if test="isRecommend != null" >
+        is_recommend,
+      </if>
+      <if test="districtId != null" >
+        district_id,
+      </if>
+      <if test="districtName != null" >
+        district_name,
+      </if>
+      <if test="districtSubId != null" >
+        district_sub_id,
+      </if>
+      <if test="districtSubName != null" >
+        district_sub_name,
+      </if>
+      <if test="cityId != null" >
+        city_id,
+      </if>
+      <if test="residentialNickName != null" >
+        residential_nick_name,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="delState != null" >
+        del_state,
+      </if>
+      <if test="provinceName != null" >
+        province_name,
+      </if>
+      <if test="provinceId != null" >
+        province_id,
+      </if>
+      <if test="cityName != null" >
+        city_name,
+      </if>
+      <if test="districtShortKey != null" >
+        district_short_key,
+      </if>
+      <if test="districtSubShortKey != null" >
+        district_sub_short_key,
+      </if>
+      <if test="pinyin != null" >
+        pinyin,
+      </if>
+      <if test="shardingId != null" >
+        sharding_id,
+      </if>
+      <if test="publicTime != null" >
+        public_time,
+      </if>
+      <if test="tradingArea != null" >
+        trading_area,
+      </if>
+      <if test="businessZone != null" >
+        business_zone,
+      </if>
+      <if test="oldShortKey != null" >
+        old_short_key,
+      </if>
+      <if test="oldDistrictSubName != null" >
+        old_district_sub_name,
+      </if>
+      <if test="newShortKey != null" >
+        new_short_key,
+      </if>
+      <if test="newDistrictSubName != null" >
+        new_district_sub_name,
+      </if>
+      <if test="totalFloorArea != null" >
+        total_floor_area,
+      </if>
+      <if test="usedLandArea != null" >
+        used_land_area,
+      </if>
+      <if test="noLimitArea != null" >
+        no_limit_area,
+      </if>
+      <if test="residentialInfocol != null" >
+        residential_infocol,
+      </if>
+      <if test="tellingYou != null" >
+        telling_you,
+      </if>
+      <if test="baseDistrictSubId != null" >
+        base_district_sub_id,
+      </if>
+      <if test="baseDistrictSubName != null" >
+        base_district_sub_name,
+      </if>
+      <if test="recordSource != null" >
+        record_source,
+      </if>
+      <if test="points != null" >
+        points,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="residentialName != null" >
+        #{residentialName,jdbcType=VARCHAR},
+      </if>
+      <if test="loopLineId != null" >
+        #{loopLineId,jdbcType=VARCHAR},
+      </if>
+      <if test="xSite != null" >
+        #{xSite,jdbcType=DOUBLE},
+      </if>
+      <if test="ySite != null" >
+        #{ySite,jdbcType=DOUBLE},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="auditStatus != null" >
+        #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="isRecommend != null" >
+        #{isRecommend,jdbcType=VARCHAR},
+      </if>
+      <if test="districtId != null" >
+        #{districtId,jdbcType=VARCHAR},
+      </if>
+      <if test="districtName != null" >
+        #{districtName,jdbcType=VARCHAR},
+      </if>
+      <if test="districtSubId != null" >
+        #{districtSubId,jdbcType=VARCHAR},
+      </if>
+      <if test="districtSubName != null" >
+        #{districtSubName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="residentialNickName != null" >
+        #{residentialNickName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="delState != null" >
+        #{delState,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceName != null" >
+        #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null" >
+        #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="districtShortKey != null" >
+        #{districtShortKey,jdbcType=VARCHAR},
+      </if>
+      <if test="districtSubShortKey != null" >
+        #{districtSubShortKey,jdbcType=VARCHAR},
+      </if>
+      <if test="pinyin != null" >
+        #{pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="shardingId != null" >
+        #{shardingId,jdbcType=VARCHAR},
+      </if>
+      <if test="publicTime != null" >
+        #{publicTime,jdbcType=BIGINT},
+      </if>
+      <if test="tradingArea != null" >
+        #{tradingArea,jdbcType=VARCHAR},
+      </if>
+      <if test="businessZone != null" >
+        #{businessZone,jdbcType=VARCHAR},
+      </if>
+      <if test="oldShortKey != null" >
+        #{oldShortKey,jdbcType=VARCHAR},
+      </if>
+      <if test="oldDistrictSubName != null" >
+        #{oldDistrictSubName,jdbcType=VARCHAR},
+      </if>
+      <if test="newShortKey != null" >
+        #{newShortKey,jdbcType=VARCHAR},
+      </if>
+      <if test="newDistrictSubName != null" >
+        #{newDistrictSubName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalFloorArea != null" >
+        #{totalFloorArea,jdbcType=INTEGER},
+      </if>
+      <if test="usedLandArea != null" >
+        #{usedLandArea,jdbcType=INTEGER},
+      </if>
+      <if test="noLimitArea != null" >
+        #{noLimitArea,jdbcType=VARCHAR},
+      </if>
+      <if test="residentialInfocol != null" >
+        #{residentialInfocol,jdbcType=VARCHAR},
+      </if>
+      <if test="tellingYou != null" >
+        #{tellingYou,jdbcType=VARCHAR},
+      </if>
+      <if test="baseDistrictSubId != null" >
+        #{baseDistrictSubId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseDistrictSubName != null" >
+        #{baseDistrictSubName,jdbcType=VARCHAR},
+      </if>
+      <if test="recordSource != null" >
+        #{recordSource,jdbcType=VARCHAR},
+      </if>
+      <if test="points != null" >
+        #{points,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fdc.active.domain.ResidentialInfo" >
+    update residential_info
+    <set >
+      <if test="residentialName != null" >
+        residential_name = #{residentialName,jdbcType=VARCHAR},
+      </if>
+      <if test="loopLineId != null" >
+        loop_line_id = #{loopLineId,jdbcType=VARCHAR},
+      </if>
+      <if test="xSite != null" >
+        x_site = #{xSite,jdbcType=DOUBLE},
+      </if>
+      <if test="ySite != null" >
+        y_site = #{ySite,jdbcType=DOUBLE},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=BIGINT},
+      </if>
+      <if test="auditStatus != null" >
+        audit_status = #{auditStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="isRecommend != null" >
+        is_recommend = #{isRecommend,jdbcType=VARCHAR},
+      </if>
+      <if test="districtId != null" >
+        district_id = #{districtId,jdbcType=VARCHAR},
+      </if>
+      <if test="districtName != null" >
+        district_name = #{districtName,jdbcType=VARCHAR},
+      </if>
+      <if test="districtSubId != null" >
+        district_sub_id = #{districtSubId,jdbcType=VARCHAR},
+      </if>
+      <if test="districtSubName != null" >
+        district_sub_name = #{districtSubName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        city_id = #{cityId,jdbcType=VARCHAR},
+      </if>
+      <if test="residentialNickName != null" >
+        residential_nick_name = #{residentialNickName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="delState != null" >
+        del_state = #{delState,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceName != null" >
+        province_name = #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        province_id = #{provinceId,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null" >
+        city_name = #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="districtShortKey != null" >
+        district_short_key = #{districtShortKey,jdbcType=VARCHAR},
+      </if>
+      <if test="districtSubShortKey != null" >
+        district_sub_short_key = #{districtSubShortKey,jdbcType=VARCHAR},
+      </if>
+      <if test="pinyin != null" >
+        pinyin = #{pinyin,jdbcType=VARCHAR},
+      </if>
+      <if test="shardingId != null" >
+        sharding_id = #{shardingId,jdbcType=VARCHAR},
+      </if>
+      <if test="publicTime != null" >
+        public_time = #{publicTime,jdbcType=BIGINT},
+      </if>
+      <if test="tradingArea != null" >
+        trading_area = #{tradingArea,jdbcType=VARCHAR},
+      </if>
+      <if test="businessZone != null" >
+        business_zone = #{businessZone,jdbcType=VARCHAR},
+      </if>
+      <if test="oldShortKey != null" >
+        old_short_key = #{oldShortKey,jdbcType=VARCHAR},
+      </if>
+      <if test="oldDistrictSubName != null" >
+        old_district_sub_name = #{oldDistrictSubName,jdbcType=VARCHAR},
+      </if>
+      <if test="newShortKey != null" >
+        new_short_key = #{newShortKey,jdbcType=VARCHAR},
+      </if>
+      <if test="newDistrictSubName != null" >
+        new_district_sub_name = #{newDistrictSubName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalFloorArea != null" >
+        total_floor_area = #{totalFloorArea,jdbcType=INTEGER},
+      </if>
+      <if test="usedLandArea != null" >
+        used_land_area = #{usedLandArea,jdbcType=INTEGER},
+      </if>
+      <if test="noLimitArea != null" >
+        no_limit_area = #{noLimitArea,jdbcType=VARCHAR},
+      </if>
+      <if test="residentialInfocol != null" >
+        residential_infocol = #{residentialInfocol,jdbcType=VARCHAR},
+      </if>
+      <if test="tellingYou != null" >
+        telling_you = #{tellingYou,jdbcType=VARCHAR},
+      </if>
+      <if test="baseDistrictSubId != null" >
+        base_district_sub_id = #{baseDistrictSubId,jdbcType=VARCHAR},
+      </if>
+      <if test="baseDistrictSubName != null" >
+        base_district_sub_name = #{baseDistrictSubName,jdbcType=VARCHAR},
+      </if>
+      <if test="recordSource != null" >
+        record_source = #{recordSource,jdbcType=VARCHAR},
+      </if>
+      <if test="points != null" >
+        points = #{points,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.fdc.active.domain.ResidentialInfo" >
+    update residential_info
+    set residential_name = #{residentialName,jdbcType=VARCHAR},
+      loop_line_id = #{loopLineId,jdbcType=VARCHAR},
+      x_site = #{xSite,jdbcType=DOUBLE},
+      y_site = #{ySite,jdbcType=DOUBLE},
+      create_time = #{createTime,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=BIGINT},
+      audit_status = #{auditStatus,jdbcType=VARCHAR},
+      is_recommend = #{isRecommend,jdbcType=VARCHAR},
+      district_id = #{districtId,jdbcType=VARCHAR},
+      district_name = #{districtName,jdbcType=VARCHAR},
+      district_sub_id = #{districtSubId,jdbcType=VARCHAR},
+      district_sub_name = #{districtSubName,jdbcType=VARCHAR},
+      city_id = #{cityId,jdbcType=VARCHAR},
+      residential_nick_name = #{residentialNickName,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      del_state = #{delState,jdbcType=VARCHAR},
+      province_name = #{provinceName,jdbcType=VARCHAR},
+      province_id = #{provinceId,jdbcType=VARCHAR},
+      city_name = #{cityName,jdbcType=VARCHAR},
+      district_short_key = #{districtShortKey,jdbcType=VARCHAR},
+      district_sub_short_key = #{districtSubShortKey,jdbcType=VARCHAR},
+      pinyin = #{pinyin,jdbcType=VARCHAR},
+      sharding_id = #{shardingId,jdbcType=VARCHAR},
+      public_time = #{publicTime,jdbcType=BIGINT},
+      trading_area = #{tradingArea,jdbcType=VARCHAR},
+      business_zone = #{businessZone,jdbcType=VARCHAR},
+      old_short_key = #{oldShortKey,jdbcType=VARCHAR},
+      old_district_sub_name = #{oldDistrictSubName,jdbcType=VARCHAR},
+      new_short_key = #{newShortKey,jdbcType=VARCHAR},
+      new_district_sub_name = #{newDistrictSubName,jdbcType=VARCHAR},
+      total_floor_area = #{totalFloorArea,jdbcType=INTEGER},
+      used_land_area = #{usedLandArea,jdbcType=INTEGER},
+      no_limit_area = #{noLimitArea,jdbcType=VARCHAR},
+      residential_infocol = #{residentialInfocol,jdbcType=VARCHAR},
+      telling_you = #{tellingYou,jdbcType=VARCHAR},
+      base_district_sub_id = #{baseDistrictSubId,jdbcType=VARCHAR},
+      base_district_sub_name = #{baseDistrictSubName,jdbcType=VARCHAR},
+      record_source = #{recordSource,jdbcType=VARCHAR},
+      points = #{points,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fdc.active.domain.ResidentialInfo" >
+    update residential_info
+    set residential_name = #{residentialName,jdbcType=VARCHAR},
+      loop_line_id = #{loopLineId,jdbcType=VARCHAR},
+      x_site = #{xSite,jdbcType=DOUBLE},
+      y_site = #{ySite,jdbcType=DOUBLE},
+      create_time = #{createTime,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=BIGINT},
+      audit_status = #{auditStatus,jdbcType=VARCHAR},
+      is_recommend = #{isRecommend,jdbcType=VARCHAR},
+      district_id = #{districtId,jdbcType=VARCHAR},
+      district_name = #{districtName,jdbcType=VARCHAR},
+      district_sub_id = #{districtSubId,jdbcType=VARCHAR},
+      district_sub_name = #{districtSubName,jdbcType=VARCHAR},
+      city_id = #{cityId,jdbcType=VARCHAR},
+      residential_nick_name = #{residentialNickName,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      del_state = #{delState,jdbcType=VARCHAR},
+      province_name = #{provinceName,jdbcType=VARCHAR},
+      province_id = #{provinceId,jdbcType=VARCHAR},
+      city_name = #{cityName,jdbcType=VARCHAR},
+      district_short_key = #{districtShortKey,jdbcType=VARCHAR},
+      district_sub_short_key = #{districtSubShortKey,jdbcType=VARCHAR},
+      pinyin = #{pinyin,jdbcType=VARCHAR},
+      sharding_id = #{shardingId,jdbcType=VARCHAR},
+      public_time = #{publicTime,jdbcType=BIGINT},
+      trading_area = #{tradingArea,jdbcType=VARCHAR},
+      business_zone = #{businessZone,jdbcType=VARCHAR},
+      old_short_key = #{oldShortKey,jdbcType=VARCHAR},
+      old_district_sub_name = #{oldDistrictSubName,jdbcType=VARCHAR},
+      new_short_key = #{newShortKey,jdbcType=VARCHAR},
+      new_district_sub_name = #{newDistrictSubName,jdbcType=VARCHAR},
+      total_floor_area = #{totalFloorArea,jdbcType=INTEGER},
+      used_land_area = #{usedLandArea,jdbcType=INTEGER},
+      no_limit_area = #{noLimitArea,jdbcType=VARCHAR},
+      residential_infocol = #{residentialInfocol,jdbcType=VARCHAR},
+      telling_you = #{tellingYou,jdbcType=VARCHAR},
+      base_district_sub_id = #{baseDistrictSubId,jdbcType=VARCHAR},
+      base_district_sub_name = #{baseDistrictSubName,jdbcType=VARCHAR},
+      record_source = #{recordSource,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectByPinyin" resultMap="BaseResultMap" parameterType="string">
+    SELECT * from residential_info
+    where  pinyin = #{pinyin,jdbcType=VARCHAR}
+
+  </select>
+
+</mapper>

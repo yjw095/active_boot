@@ -1,0 +1,22 @@
+server:
+  port: 9099
+  servlet:
+    context-path: /activeboot
+logging:
+  config: classpath:logback.xml
+  level:
+    org.springframework.web: DEBUG
+spring:
+  profiles:
+    active: test
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.fdc.active.domain
+
+
+
+
+
+
+

@@ -1,0 +1,918 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fdc.active.dao.NhsHousePriceResultMapper" >
+  <resultMap id="BaseResultMap" type="com.fdc.active.domain.NhsHousePriceResult" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="project_number" property="projectNumber" jdbcType="VARCHAR" />
+    <result column="building" property="building" jdbcType="VARCHAR" />
+    <result column="unit" property="unit" jdbcType="VARCHAR" />
+    <result column="floor" property="floor" jdbcType="INTEGER" />
+    <result column="room" property="room" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="sale_status" property="saleStatus" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_shield" property="isShield" jdbcType="VARCHAR" />
+    <result column="pre_sale_permit" property="preSalePermit" jdbcType="VARCHAR" />
+    <result column="predicted_area" property="predictedArea" jdbcType="REAL" />
+    <result column="issue_time" property="issueTime" jdbcType="TIMESTAMP" />
+    <result column="gmt_created" property="gmtCreated" jdbcType="TIMESTAMP" />
+    <result column="gmt_modified" property="gmtModified" jdbcType="TIMESTAMP" />
+    <result column="created_by" property="createdBy" jdbcType="VARCHAR" />
+    <result column="modified_by" property="modifiedBy" jdbcType="VARCHAR" />
+    <result column="complete_time" property="completeTime" jdbcType="DATE" />
+    <result column="project_name" property="projectName" jdbcType="VARCHAR" />
+    <result column="sale_time" property="saleTime" jdbcType="TIMESTAMP" />
+    <result column="residential_info_front_id" property="residentialInfoFrontId" jdbcType="VARCHAR" />
+    <result column="residential_info_unit_id" property="residentialInfoUnitId" jdbcType="VARCHAR" />
+    <result column="total_price" property="totalPrice" jdbcType="INTEGER" />
+    <result column="is_sale_status_shield" property="isSaleStatusShield" jdbcType="VARCHAR" />
+    <result column="property_type" property="propertyType" jdbcType="VARCHAR" />
+    <result column="link_url" property="linkUrl" jdbcType="VARCHAR" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="residential_info_front_name" property="residentialInfoFrontName" jdbcType="VARCHAR" />
+    <result column="sale_status_show" property="saleStatusShow" jdbcType="VARCHAR" />
+    <result column="house_title" property="houseTitle" jdbcType="VARCHAR" />
+    <result column="house_summary" property="houseSummary" jdbcType="VARCHAR" />
+    <result column="label" property="label" jdbcType="VARCHAR" />
+    <result column="collection_count" property="collectionCount" jdbcType="DECIMAL" />
+    <result column="collection_count_set" property="collectionCountSet" jdbcType="DECIMAL" />
+    <result column="pre_order_count" property="preOrderCount" jdbcType="DECIMAL" />
+    <result column="pre_order_count_set" property="preOrderCountSet" jdbcType="DECIMAL" />
+    <result column="record_instruction" property="recordInstruction" jdbcType="VARCHAR" />
+    <result column="share_scale" property="shareScale" jdbcType="DECIMAL" />
+    <result column="service" property="service" jdbcType="VARCHAR" />
+    <result column="decorate_price" property="decoratePrice" jdbcType="DECIMAL" />
+    <result column="building_area" property="buildingArea" jdbcType="DECIMAL" />
+    <result column="house_recommended" property="houseRecommended" jdbcType="VARCHAR" />
+    <result column="discount" property="discount" jdbcType="VARCHAR" />
+    <result column="flash_set" property="flashSet" jdbcType="VARCHAR" />
+    <result column="residential_sub_name" property="residentialSubName" jdbcType="VARCHAR" />
+    <result column="residential_sub_id" property="residentialSubId" jdbcType="VARCHAR" />
+    <result column="recommended_by_residential" property="recommendedByResidential" jdbcType="INTEGER" />
+    <result column="recommend_reason" property="recommendReason" jdbcType="VARCHAR" />
+    <result column="building_show" property="buildingShow" jdbcType="VARCHAR" />
+    <result column="building_id" property="buildingId" jdbcType="VARCHAR" />
+    <result column="second_kill" property="secondKill" jdbcType="VARCHAR" />
+    <result column="sharding_id" property="shardingId" jdbcType="VARCHAR" />
+    <result column="manual" property="manual" jdbcType="VARCHAR" />
+    <result column="unit_show" property="unitShow" jdbcType="VARCHAR" />
+    <result column="unit_id" property="unitId" jdbcType="VARCHAR" />
+    <result column="room_show" property="roomShow" jdbcType="INTEGER" />
+    <result column="property_sub_type" property="propertySubType" jdbcType="VARCHAR" />
+    <result column="col_housing_type_id" property="colHousingTypeId" jdbcType="VARCHAR" />
+    <result column="property_sub_name" property="propertySubName" jdbcType="VARCHAR" />
+    <result column="bind" property="bind" jdbcType="VARCHAR" />
+    <result column="del_state" property="delState" jdbcType="VARCHAR" />
+    <result column="label_ids" property="labelIds" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.fdc.active.domain.NhsHousePriceResult" extends="BaseResultMap" >
+    <result column="price_img" property="priceImg" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, project_number, building, unit, floor, room, price, sale_status, create_time, 
+    update_time, is_shield, pre_sale_permit, predicted_area, issue_time, gmt_created, 
+    gmt_modified, created_by, modified_by, complete_time, project_name, sale_time, residential_info_front_id, 
+    residential_info_unit_id, total_price, is_sale_status_shield, property_type, link_url, 
+    location, residential_info_front_name, sale_status_show, house_title, house_summary, 
+    label, collection_count, collection_count_set, pre_order_count, pre_order_count_set, 
+    record_instruction, share_scale, service, decorate_price, building_area, house_recommended, 
+    discount, flash_set, residential_sub_name, residential_sub_id, recommended_by_residential, 
+    recommend_reason, building_show, building_id, second_kill, sharding_id, manual, unit_show, 
+    unit_id, room_show, property_sub_type, col_housing_type_id, property_sub_name, bind, 
+    del_state, label_ids
+  </sql>
+  <sql id="Blob_Column_List" >
+    price_img
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from nhs_house_price_result
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from nhs_house_price_result
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.fdc.active.domain.NhsHousePriceResult" >
+    insert into nhs_house_price_result (id, project_number, building, 
+      unit, floor, room, 
+      price, sale_status, create_time, 
+      update_time, is_shield, pre_sale_permit, 
+      predicted_area, issue_time, gmt_created, 
+      gmt_modified, created_by, modified_by, 
+      complete_time, project_name, sale_time, 
+      residential_info_front_id, residential_info_unit_id, 
+      total_price, is_sale_status_shield, property_type, 
+      link_url, location, residential_info_front_name, 
+      sale_status_show, house_title, house_summary, 
+      label, collection_count, collection_count_set, 
+      pre_order_count, pre_order_count_set, record_instruction, 
+      share_scale, service, decorate_price, 
+      building_area, house_recommended, discount, 
+      flash_set, residential_sub_name, residential_sub_id, 
+      recommended_by_residential, recommend_reason, 
+      building_show, building_id, second_kill, 
+      sharding_id, manual, unit_show, 
+      unit_id, room_show, property_sub_type, 
+      col_housing_type_id, property_sub_name, bind, 
+      del_state, label_ids, price_img
+      )
+    values (#{id,jdbcType=VARCHAR}, #{projectNumber,jdbcType=VARCHAR}, #{building,jdbcType=VARCHAR}, 
+      #{unit,jdbcType=VARCHAR}, #{floor,jdbcType=INTEGER}, #{room,jdbcType=VARCHAR}, 
+      #{price,jdbcType=INTEGER}, #{saleStatus,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isShield,jdbcType=VARCHAR}, #{preSalePermit,jdbcType=VARCHAR}, 
+      #{predictedArea,jdbcType=REAL}, #{issueTime,jdbcType=TIMESTAMP}, #{gmtCreated,jdbcType=TIMESTAMP}, 
+      #{gmtModified,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=VARCHAR}, #{modifiedBy,jdbcType=VARCHAR}, 
+      #{completeTime,jdbcType=DATE}, #{projectName,jdbcType=VARCHAR}, #{saleTime,jdbcType=TIMESTAMP}, 
+      #{residentialInfoFrontId,jdbcType=VARCHAR}, #{residentialInfoUnitId,jdbcType=VARCHAR}, 
+      #{totalPrice,jdbcType=INTEGER}, #{isSaleStatusShield,jdbcType=VARCHAR}, #{propertyType,jdbcType=VARCHAR}, 
+      #{linkUrl,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}, #{residentialInfoFrontName,jdbcType=VARCHAR}, 
+      #{saleStatusShow,jdbcType=VARCHAR}, #{houseTitle,jdbcType=VARCHAR}, #{houseSummary,jdbcType=VARCHAR}, 
+      #{label,jdbcType=VARCHAR}, #{collectionCount,jdbcType=DECIMAL}, #{collectionCountSet,jdbcType=DECIMAL}, 
+      #{preOrderCount,jdbcType=DECIMAL}, #{preOrderCountSet,jdbcType=DECIMAL}, #{recordInstruction,jdbcType=VARCHAR}, 
+      #{shareScale,jdbcType=DECIMAL}, #{service,jdbcType=VARCHAR}, #{decoratePrice,jdbcType=DECIMAL}, 
+      #{buildingArea,jdbcType=DECIMAL}, #{houseRecommended,jdbcType=VARCHAR}, #{discount,jdbcType=VARCHAR}, 
+      #{flashSet,jdbcType=VARCHAR}, #{residentialSubName,jdbcType=VARCHAR}, #{residentialSubId,jdbcType=VARCHAR}, 
+      #{recommendedByResidential,jdbcType=INTEGER}, #{recommendReason,jdbcType=VARCHAR}, 
+      #{buildingShow,jdbcType=VARCHAR}, #{buildingId,jdbcType=VARCHAR}, #{secondKill,jdbcType=VARCHAR}, 
+      #{shardingId,jdbcType=VARCHAR}, #{manual,jdbcType=VARCHAR}, #{unitShow,jdbcType=VARCHAR}, 
+      #{unitId,jdbcType=VARCHAR}, #{roomShow,jdbcType=INTEGER}, #{propertySubType,jdbcType=VARCHAR}, 
+      #{colHousingTypeId,jdbcType=VARCHAR}, #{propertySubName,jdbcType=VARCHAR}, #{bind,jdbcType=VARCHAR}, 
+      #{delState,jdbcType=VARCHAR}, #{labelIds,jdbcType=VARCHAR}, #{priceImg,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.fdc.active.domain.NhsHousePriceResult" >
+    insert into nhs_house_price_result
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="projectNumber != null" >
+        project_number,
+      </if>
+      <if test="building != null" >
+        building,
+      </if>
+      <if test="unit != null" >
+        unit,
+      </if>
+      <if test="floor != null" >
+        floor,
+      </if>
+      <if test="room != null" >
+        room,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="saleStatus != null" >
+        sale_status,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isShield != null" >
+        is_shield,
+      </if>
+      <if test="preSalePermit != null" >
+        pre_sale_permit,
+      </if>
+      <if test="predictedArea != null" >
+        predicted_area,
+      </if>
+      <if test="issueTime != null" >
+        issue_time,
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created,
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified,
+      </if>
+      <if test="createdBy != null" >
+        created_by,
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by,
+      </if>
+      <if test="completeTime != null" >
+        complete_time,
+      </if>
+      <if test="projectName != null" >
+        project_name,
+      </if>
+      <if test="saleTime != null" >
+        sale_time,
+      </if>
+      <if test="residentialInfoFrontId != null" >
+        residential_info_front_id,
+      </if>
+      <if test="residentialInfoUnitId != null" >
+        residential_info_unit_id,
+      </if>
+      <if test="totalPrice != null" >
+        total_price,
+      </if>
+      <if test="isSaleStatusShield != null" >
+        is_sale_status_shield,
+      </if>
+      <if test="propertyType != null" >
+        property_type,
+      </if>
+      <if test="linkUrl != null" >
+        link_url,
+      </if>
+      <if test="location != null" >
+        location,
+      </if>
+      <if test="residentialInfoFrontName != null" >
+        residential_info_front_name,
+      </if>
+      <if test="saleStatusShow != null" >
+        sale_status_show,
+      </if>
+      <if test="houseTitle != null" >
+        house_title,
+      </if>
+      <if test="houseSummary != null" >
+        house_summary,
+      </if>
+      <if test="label != null" >
+        label,
+      </if>
+      <if test="collectionCount != null" >
+        collection_count,
+      </if>
+      <if test="collectionCountSet != null" >
+        collection_count_set,
+      </if>
+      <if test="preOrderCount != null" >
+        pre_order_count,
+      </if>
+      <if test="preOrderCountSet != null" >
+        pre_order_count_set,
+      </if>
+      <if test="recordInstruction != null" >
+        record_instruction,
+      </if>
+      <if test="shareScale != null" >
+        share_scale,
+      </if>
+      <if test="service != null" >
+        service,
+      </if>
+      <if test="decoratePrice != null" >
+        decorate_price,
+      </if>
+      <if test="buildingArea != null" >
+        building_area,
+      </if>
+      <if test="houseRecommended != null" >
+        house_recommended,
+      </if>
+      <if test="discount != null" >
+        discount,
+      </if>
+      <if test="flashSet != null" >
+        flash_set,
+      </if>
+      <if test="residentialSubName != null" >
+        residential_sub_name,
+      </if>
+      <if test="residentialSubId != null" >
+        residential_sub_id,
+      </if>
+      <if test="recommendedByResidential != null" >
+        recommended_by_residential,
+      </if>
+      <if test="recommendReason != null" >
+        recommend_reason,
+      </if>
+      <if test="buildingShow != null" >
+        building_show,
+      </if>
+      <if test="buildingId != null" >
+        building_id,
+      </if>
+      <if test="secondKill != null" >
+        second_kill,
+      </if>
+      <if test="shardingId != null" >
+        sharding_id,
+      </if>
+      <if test="manual != null" >
+        manual,
+      </if>
+      <if test="unitShow != null" >
+        unit_show,
+      </if>
+      <if test="unitId != null" >
+        unit_id,
+      </if>
+      <if test="roomShow != null" >
+        room_show,
+      </if>
+      <if test="propertySubType != null" >
+        property_sub_type,
+      </if>
+      <if test="colHousingTypeId != null" >
+        col_housing_type_id,
+      </if>
+      <if test="propertySubName != null" >
+        property_sub_name,
+      </if>
+      <if test="bind != null" >
+        bind,
+      </if>
+      <if test="delState != null" >
+        del_state,
+      </if>
+      <if test="labelIds != null" >
+        label_ids,
+      </if>
+      <if test="priceImg != null" >
+        price_img,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="projectNumber != null" >
+        #{projectNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="building != null" >
+        #{building,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="floor != null" >
+        #{floor,jdbcType=INTEGER},
+      </if>
+      <if test="room != null" >
+        #{room,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="saleStatus != null" >
+        #{saleStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isShield != null" >
+        #{isShield,jdbcType=VARCHAR},
+      </if>
+      <if test="preSalePermit != null" >
+        #{preSalePermit,jdbcType=VARCHAR},
+      </if>
+      <if test="predictedArea != null" >
+        #{predictedArea,jdbcType=REAL},
+      </if>
+      <if test="issueTime != null" >
+        #{issueTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtCreated != null" >
+        #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="completeTime != null" >
+        #{completeTime,jdbcType=DATE},
+      </if>
+      <if test="projectName != null" >
+        #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="saleTime != null" >
+        #{saleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="residentialInfoFrontId != null" >
+        #{residentialInfoFrontId,jdbcType=VARCHAR},
+      </if>
+      <if test="residentialInfoUnitId != null" >
+        #{residentialInfoUnitId,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPrice != null" >
+        #{totalPrice,jdbcType=INTEGER},
+      </if>
+      <if test="isSaleStatusShield != null" >
+        #{isSaleStatusShield,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyType != null" >
+        #{propertyType,jdbcType=VARCHAR},
+      </if>
+      <if test="linkUrl != null" >
+        #{linkUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="residentialInfoFrontName != null" >
+        #{residentialInfoFrontName,jdbcType=VARCHAR},
+      </if>
+      <if test="saleStatusShow != null" >
+        #{saleStatusShow,jdbcType=VARCHAR},
+      </if>
+      <if test="houseTitle != null" >
+        #{houseTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="houseSummary != null" >
+        #{houseSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="label != null" >
+        #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="collectionCount != null" >
+        #{collectionCount,jdbcType=DECIMAL},
+      </if>
+      <if test="collectionCountSet != null" >
+        #{collectionCountSet,jdbcType=DECIMAL},
+      </if>
+      <if test="preOrderCount != null" >
+        #{preOrderCount,jdbcType=DECIMAL},
+      </if>
+      <if test="preOrderCountSet != null" >
+        #{preOrderCountSet,jdbcType=DECIMAL},
+      </if>
+      <if test="recordInstruction != null" >
+        #{recordInstruction,jdbcType=VARCHAR},
+      </if>
+      <if test="shareScale != null" >
+        #{shareScale,jdbcType=DECIMAL},
+      </if>
+      <if test="service != null" >
+        #{service,jdbcType=VARCHAR},
+      </if>
+      <if test="decoratePrice != null" >
+        #{decoratePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="buildingArea != null" >
+        #{buildingArea,jdbcType=DECIMAL},
+      </if>
+      <if test="houseRecommended != null" >
+        #{houseRecommended,jdbcType=VARCHAR},
+      </if>
+      <if test="discount != null" >
+        #{discount,jdbcType=VARCHAR},
+      </if>
+      <if test="flashSet != null" >
+        #{flashSet,jdbcType=VARCHAR},
+      </if>
+      <if test="residentialSubName != null" >
+        #{residentialSubName,jdbcType=VARCHAR},
+      </if>
+      <if test="residentialSubId != null" >
+        #{residentialSubId,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendedByResidential != null" >
+        #{recommendedByResidential,jdbcType=INTEGER},
+      </if>
+      <if test="recommendReason != null" >
+        #{recommendReason,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingShow != null" >
+        #{buildingShow,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingId != null" >
+        #{buildingId,jdbcType=VARCHAR},
+      </if>
+      <if test="secondKill != null" >
+        #{secondKill,jdbcType=VARCHAR},
+      </if>
+      <if test="shardingId != null" >
+        #{shardingId,jdbcType=VARCHAR},
+      </if>
+      <if test="manual != null" >
+        #{manual,jdbcType=VARCHAR},
+      </if>
+      <if test="unitShow != null" >
+        #{unitShow,jdbcType=VARCHAR},
+      </if>
+      <if test="unitId != null" >
+        #{unitId,jdbcType=VARCHAR},
+      </if>
+      <if test="roomShow != null" >
+        #{roomShow,jdbcType=INTEGER},
+      </if>
+      <if test="propertySubType != null" >
+        #{propertySubType,jdbcType=VARCHAR},
+      </if>
+      <if test="colHousingTypeId != null" >
+        #{colHousingTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="propertySubName != null" >
+        #{propertySubName,jdbcType=VARCHAR},
+      </if>
+      <if test="bind != null" >
+        #{bind,jdbcType=VARCHAR},
+      </if>
+      <if test="delState != null" >
+        #{delState,jdbcType=VARCHAR},
+      </if>
+      <if test="labelIds != null" >
+        #{labelIds,jdbcType=VARCHAR},
+      </if>
+      <if test="priceImg != null" >
+        #{priceImg,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fdc.active.domain.NhsHousePriceResult" >
+    update nhs_house_price_result
+    <set >
+      <if test="projectNumber != null" >
+        project_number = #{projectNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="building != null" >
+        building = #{building,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="floor != null" >
+        floor = #{floor,jdbcType=INTEGER},
+      </if>
+      <if test="room != null" >
+        room = #{room,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="saleStatus != null" >
+        sale_status = #{saleStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isShield != null" >
+        is_shield = #{isShield,jdbcType=VARCHAR},
+      </if>
+      <if test="preSalePermit != null" >
+        pre_sale_permit = #{preSalePermit,jdbcType=VARCHAR},
+      </if>
+      <if test="predictedArea != null" >
+        predicted_area = #{predictedArea,jdbcType=REAL},
+      </if>
+      <if test="issueTime != null" >
+        issue_time = #{issueTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtCreated != null" >
+        gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null" >
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdBy != null" >
+        created_by = #{createdBy,jdbcType=VARCHAR},
+      </if>
+      <if test="modifiedBy != null" >
+        modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      </if>
+      <if test="completeTime != null" >
+        complete_time = #{completeTime,jdbcType=DATE},
+      </if>
+      <if test="projectName != null" >
+        project_name = #{projectName,jdbcType=VARCHAR},
+      </if>
+      <if test="saleTime != null" >
+        sale_time = #{saleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="residentialInfoFrontId != null" >
+        residential_info_front_id = #{residentialInfoFrontId,jdbcType=VARCHAR},
+      </if>
+      <if test="residentialInfoUnitId != null" >
+        residential_info_unit_id = #{residentialInfoUnitId,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPrice != null" >
+        total_price = #{totalPrice,jdbcType=INTEGER},
+      </if>
+      <if test="isSaleStatusShield != null" >
+        is_sale_status_shield = #{isSaleStatusShield,jdbcType=VARCHAR},
+      </if>
+      <if test="propertyType != null" >
+        property_type = #{propertyType,jdbcType=VARCHAR},
+      </if>
+      <if test="linkUrl != null" >
+        link_url = #{linkUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null" >
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="residentialInfoFrontName != null" >
+        residential_info_front_name = #{residentialInfoFrontName,jdbcType=VARCHAR},
+      </if>
+      <if test="saleStatusShow != null" >
+        sale_status_show = #{saleStatusShow,jdbcType=VARCHAR},
+      </if>
+      <if test="houseTitle != null" >
+        house_title = #{houseTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="houseSummary != null" >
+        house_summary = #{houseSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="label != null" >
+        label = #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="collectionCount != null" >
+        collection_count = #{collectionCount,jdbcType=DECIMAL},
+      </if>
+      <if test="collectionCountSet != null" >
+        collection_count_set = #{collectionCountSet,jdbcType=DECIMAL},
+      </if>
+      <if test="preOrderCount != null" >
+        pre_order_count = #{preOrderCount,jdbcType=DECIMAL},
+      </if>
+      <if test="preOrderCountSet != null" >
+        pre_order_count_set = #{preOrderCountSet,jdbcType=DECIMAL},
+      </if>
+      <if test="recordInstruction != null" >
+        record_instruction = #{recordInstruction,jdbcType=VARCHAR},
+      </if>
+      <if test="shareScale != null" >
+        share_scale = #{shareScale,jdbcType=DECIMAL},
+      </if>
+      <if test="service != null" >
+        service = #{service,jdbcType=VARCHAR},
+      </if>
+      <if test="decoratePrice != null" >
+        decorate_price = #{decoratePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="buildingArea != null" >
+        building_area = #{buildingArea,jdbcType=DECIMAL},
+      </if>
+      <if test="houseRecommended != null" >
+        house_recommended = #{houseRecommended,jdbcType=VARCHAR},
+      </if>
+      <if test="discount != null" >
+        discount = #{discount,jdbcType=VARCHAR},
+      </if>
+      <if test="flashSet != null" >
+        flash_set = #{flashSet,jdbcType=VARCHAR},
+      </if>
+      <if test="residentialSubName != null" >
+        residential_sub_name = #{residentialSubName,jdbcType=VARCHAR},
+      </if>
+      <if test="residentialSubId != null" >
+        residential_sub_id = #{residentialSubId,jdbcType=VARCHAR},
+      </if>
+      <if test="recommendedByResidential != null" >
+        recommended_by_residential = #{recommendedByResidential,jdbcType=INTEGER},
+      </if>
+      <if test="recommendReason != null" >
+        recommend_reason = #{recommendReason,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingShow != null" >
+        building_show = #{buildingShow,jdbcType=VARCHAR},
+      </if>
+      <if test="buildingId != null" >
+        building_id = #{buildingId,jdbcType=VARCHAR},
+      </if>
+      <if test="secondKill != null" >
+        second_kill = #{secondKill,jdbcType=VARCHAR},
+      </if>
+      <if test="shardingId != null" >
+        sharding_id = #{shardingId,jdbcType=VARCHAR},
+      </if>
+      <if test="manual != null" >
+        manual = #{manual,jdbcType=VARCHAR},
+      </if>
+      <if test="unitShow != null" >
+        unit_show = #{unitShow,jdbcType=VARCHAR},
+      </if>
+      <if test="unitId != null" >
+        unit_id = #{unitId,jdbcType=VARCHAR},
+      </if>
+      <if test="roomShow != null" >
+        room_show = #{roomShow,jdbcType=INTEGER},
+      </if>
+      <if test="propertySubType != null" >
+        property_sub_type = #{propertySubType,jdbcType=VARCHAR},
+      </if>
+      <if test="colHousingTypeId != null" >
+        col_housing_type_id = #{colHousingTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="propertySubName != null" >
+        property_sub_name = #{propertySubName,jdbcType=VARCHAR},
+      </if>
+      <if test="bind != null" >
+        bind = #{bind,jdbcType=VARCHAR},
+      </if>
+      <if test="delState != null" >
+        del_state = #{delState,jdbcType=VARCHAR},
+      </if>
+      <if test="labelIds != null" >
+        label_ids = #{labelIds,jdbcType=VARCHAR},
+      </if>
+      <if test="priceImg != null" >
+        price_img = #{priceImg,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.fdc.active.domain.NhsHousePriceResult" >
+    update nhs_house_price_result
+    set project_number = #{projectNumber,jdbcType=VARCHAR},
+      building = #{building,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      floor = #{floor,jdbcType=INTEGER},
+      room = #{room,jdbcType=VARCHAR},
+      price = #{price,jdbcType=INTEGER},
+      sale_status = #{saleStatus,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_shield = #{isShield,jdbcType=VARCHAR},
+      pre_sale_permit = #{preSalePermit,jdbcType=VARCHAR},
+      predicted_area = #{predictedArea,jdbcType=REAL},
+      issue_time = #{issueTime,jdbcType=TIMESTAMP},
+      gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      complete_time = #{completeTime,jdbcType=DATE},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      sale_time = #{saleTime,jdbcType=TIMESTAMP},
+      residential_info_front_id = #{residentialInfoFrontId,jdbcType=VARCHAR},
+      residential_info_unit_id = #{residentialInfoUnitId,jdbcType=VARCHAR},
+      total_price = #{totalPrice,jdbcType=INTEGER},
+      is_sale_status_shield = #{isSaleStatusShield,jdbcType=VARCHAR},
+      property_type = #{propertyType,jdbcType=VARCHAR},
+      link_url = #{linkUrl,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
+      residential_info_front_name = #{residentialInfoFrontName,jdbcType=VARCHAR},
+      sale_status_show = #{saleStatusShow,jdbcType=VARCHAR},
+      house_title = #{houseTitle,jdbcType=VARCHAR},
+      house_summary = #{houseSummary,jdbcType=VARCHAR},
+      label = #{label,jdbcType=VARCHAR},
+      collection_count = #{collectionCount,jdbcType=DECIMAL},
+      collection_count_set = #{collectionCountSet,jdbcType=DECIMAL},
+      pre_order_count = #{preOrderCount,jdbcType=DECIMAL},
+      pre_order_count_set = #{preOrderCountSet,jdbcType=DECIMAL},
+      record_instruction = #{recordInstruction,jdbcType=VARCHAR},
+      share_scale = #{shareScale,jdbcType=DECIMAL},
+      service = #{service,jdbcType=VARCHAR},
+      decorate_price = #{decoratePrice,jdbcType=DECIMAL},
+      building_area = #{buildingArea,jdbcType=DECIMAL},
+      house_recommended = #{houseRecommended,jdbcType=VARCHAR},
+      discount = #{discount,jdbcType=VARCHAR},
+      flash_set = #{flashSet,jdbcType=VARCHAR},
+      residential_sub_name = #{residentialSubName,jdbcType=VARCHAR},
+      residential_sub_id = #{residentialSubId,jdbcType=VARCHAR},
+      recommended_by_residential = #{recommendedByResidential,jdbcType=INTEGER},
+      recommend_reason = #{recommendReason,jdbcType=VARCHAR},
+      building_show = #{buildingShow,jdbcType=VARCHAR},
+      building_id = #{buildingId,jdbcType=VARCHAR},
+      second_kill = #{secondKill,jdbcType=VARCHAR},
+      sharding_id = #{shardingId,jdbcType=VARCHAR},
+      manual = #{manual,jdbcType=VARCHAR},
+      unit_show = #{unitShow,jdbcType=VARCHAR},
+      unit_id = #{unitId,jdbcType=VARCHAR},
+      room_show = #{roomShow,jdbcType=INTEGER},
+      property_sub_type = #{propertySubType,jdbcType=VARCHAR},
+      col_housing_type_id = #{colHousingTypeId,jdbcType=VARCHAR},
+      property_sub_name = #{propertySubName,jdbcType=VARCHAR},
+      bind = #{bind,jdbcType=VARCHAR},
+      del_state = #{delState,jdbcType=VARCHAR},
+      label_ids = #{labelIds,jdbcType=VARCHAR},
+      price_img = #{priceImg,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fdc.active.domain.NhsHousePriceResult" >
+    update nhs_house_price_result
+    set project_number = #{projectNumber,jdbcType=VARCHAR},
+      building = #{building,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      floor = #{floor,jdbcType=INTEGER},
+      room = #{room,jdbcType=VARCHAR},
+      price = #{price,jdbcType=INTEGER},
+      sale_status = #{saleStatus,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_shield = #{isShield,jdbcType=VARCHAR},
+      pre_sale_permit = #{preSalePermit,jdbcType=VARCHAR},
+      predicted_area = #{predictedArea,jdbcType=REAL},
+      issue_time = #{issueTime,jdbcType=TIMESTAMP},
+      gmt_created = #{gmtCreated,jdbcType=TIMESTAMP},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      created_by = #{createdBy,jdbcType=VARCHAR},
+      modified_by = #{modifiedBy,jdbcType=VARCHAR},
+      complete_time = #{completeTime,jdbcType=DATE},
+      project_name = #{projectName,jdbcType=VARCHAR},
+      sale_time = #{saleTime,jdbcType=TIMESTAMP},
+      residential_info_front_id = #{residentialInfoFrontId,jdbcType=VARCHAR},
+      residential_info_unit_id = #{residentialInfoUnitId,jdbcType=VARCHAR},
+      total_price = #{totalPrice,jdbcType=INTEGER},
+      is_sale_status_shield = #{isSaleStatusShield,jdbcType=VARCHAR},
+      property_type = #{propertyType,jdbcType=VARCHAR},
+      link_url = #{linkUrl,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
+      residential_info_front_name = #{residentialInfoFrontName,jdbcType=VARCHAR},
+      sale_status_show = #{saleStatusShow,jdbcType=VARCHAR},
+      house_title = #{houseTitle,jdbcType=VARCHAR},
+      house_summary = #{houseSummary,jdbcType=VARCHAR},
+      label = #{label,jdbcType=VARCHAR},
+      collection_count = #{collectionCount,jdbcType=DECIMAL},
+      collection_count_set = #{collectionCountSet,jdbcType=DECIMAL},
+      pre_order_count = #{preOrderCount,jdbcType=DECIMAL},
+      pre_order_count_set = #{preOrderCountSet,jdbcType=DECIMAL},
+      record_instruction = #{recordInstruction,jdbcType=VARCHAR},
+      share_scale = #{shareScale,jdbcType=DECIMAL},
+      service = #{service,jdbcType=VARCHAR},
+      decorate_price = #{decoratePrice,jdbcType=DECIMAL},
+      building_area = #{buildingArea,jdbcType=DECIMAL},
+      house_recommended = #{houseRecommended,jdbcType=VARCHAR},
+      discount = #{discount,jdbcType=VARCHAR},
+      flash_set = #{flashSet,jdbcType=VARCHAR},
+      residential_sub_name = #{residentialSubName,jdbcType=VARCHAR},
+      residential_sub_id = #{residentialSubId,jdbcType=VARCHAR},
+      recommended_by_residential = #{recommendedByResidential,jdbcType=INTEGER},
+      recommend_reason = #{recommendReason,jdbcType=VARCHAR},
+      building_show = #{buildingShow,jdbcType=VARCHAR},
+      building_id = #{buildingId,jdbcType=VARCHAR},
+      second_kill = #{secondKill,jdbcType=VARCHAR},
+      sharding_id = #{shardingId,jdbcType=VARCHAR},
+      manual = #{manual,jdbcType=VARCHAR},
+      unit_show = #{unitShow,jdbcType=VARCHAR},
+      unit_id = #{unitId,jdbcType=VARCHAR},
+      room_show = #{roomShow,jdbcType=INTEGER},
+      property_sub_type = #{propertySubType,jdbcType=VARCHAR},
+      col_housing_type_id = #{colHousingTypeId,jdbcType=VARCHAR},
+      property_sub_name = #{propertySubName,jdbcType=VARCHAR},
+      bind = #{bind,jdbcType=VARCHAR},
+      del_state = #{delState,jdbcType=VARCHAR},
+      label_ids = #{labelIds,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+
+  <select id="getFloor" resultType="Integer" >
+    select
+    max(floor)
+    from nhs_house_price_result
+    where building_id = #{id,jdbcType=VARCHAR} and sharding_id = #{sharding_id,jdbcType=VARCHAR}
+  </select>
+
+  <select id="getNum" resultType="Integer" >
+    SELECT
+    COUNT(id)
+    FROM nhs_house_price_result
+    WHERE building_id = #{id,jdbcType=VARCHAR} AND unit_id = #{unit,jdbcType=VARCHAR}
+    and sharding_id = #{sharding_id,jdbcType=VARCHAR} GROUP BY `floor` ORDER BY `floor`
+    limit 1
+  </select>
+
+  <select id="getHouseholds" resultType="Integer" >
+    select
+    count(id)
+    from nhs_house_price_result
+    where building_id = #{id,jdbcType=VARCHAR} and sharding_id = #{sharding_id,jdbcType=VARCHAR}
+  </select>
+
+  <select id="getHouseTypeIdsByBuildingIds" resultType="java.lang.String" parameterType="java.util.Map">
+
+    SELECT
+    distinct residential_info_unit_id
+    FROM
+    (
+    SELECT residential_info_unit_id,building_id,sharding_id
+    FROM nhs_house_price_person_add
+    WHERE unit_id IN (SELECT id FROM unit WHERE bind='0')
+    UNION ALL
+    SELECT residential_info_unit_id,building_id,sharding_id
+    FROM nhs_house_price_result
+    WHERE unit_id IN (SELECT id FROM unit WHERE bind='1') and bind='1' and del_state='0'
+    ) result
+    WHERE building_id in
+    <foreach collection="ids" item="listItem" open="(" close=")" separator="," >
+      #{listItem}
+    </foreach>
+    AND sharding_id = #{sharding_id,jdbcType=VARCHAR} AND residential_info_unit_id IS NOT NULL AND
+    residential_info_unit_id !=''
+    GROUP BY residential_info_unit_id
+
+  </select>
+
+
+
+</mapper>
