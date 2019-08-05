@@ -45,6 +45,12 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none #jdbc 取消hibernate
+  rabbitmq:
+    addresses: 127.0.0.1
+    username: guest
+    password: guest
+
+
 
 
 

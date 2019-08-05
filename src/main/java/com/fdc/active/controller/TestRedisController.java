@@ -3,6 +3,7 @@ package com.fdc.active.controller;
 import com.fdc.active.domain.es.ResidentialInfoEs;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
@@ -33,6 +34,8 @@ public class TestRedisController {
     @Autowired
     ElasticsearchTemplate elasticsearchTemplate ;
 
+    @Autowired
+    AmqpTemplate rabbitTemplate;
 
     @RequestMapping(value ="/activeboot.redis2", method = RequestMethod.GET)
     @ResponseBody
@@ -57,6 +60,18 @@ public class TestRedisController {
 
         List<ResidentialInfoEs> list = elasticsearchTemplate.queryForList(searchQuery ,ResidentialInfoEs.class);
         map.put("data", list);
+        return map;
+    }
+
+
+    @RequestMapping(value ="/activeboot.mq", method = RequestMethod.GET)
+    @ResponseBody
+    public Map<String,Object> mq(String msg){
+        Map<String,Object> map = new HashMap<>();
+        map.put("data","[]");
+
+        rabbitTemplate.convertAndSend("demoMq" ,msg);
+        map.put("data", 0);
         return map;
     }
 

@@ -5,6 +5,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
+
 @Document(indexName="home_test",type="residential_info_front", shards =5, replicas = 0)
 public class ResidentialInfoEs {
 
