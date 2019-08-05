@@ -19,8 +19,6 @@
 	</parent>
 
 	<properties>
-		<springframework.version>4.3.13.RELEASE</springframework.version>
-		<spring.boot.version>2.0.2.RELEASE</spring.boot.version>
 		<spring-boot-starter-dubbo.version>1.5</spring-boot-starter-dubbo.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -28,20 +26,6 @@
 	</properties>
 
 	<dependencies>
-
-		<!--<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-framework-bom</artifactId>
-			<type>pom</type>
-			<scope>import</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-dependencies</artifactId>
-			<version>${spring.boot.version}</version>
-			<type>pom</type>
-			<scope>import</scope>
-		</dependency>-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -58,6 +42,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-test</artifactId>
 		</dependency>
+
+
+		<!--<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>-->
 
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
@@ -97,26 +87,6 @@
 
 
 		<dependency>
-			<groupId>com.fdc.home.workstation.service</groupId>
-			<artifactId>home-workstation-serv-inter</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.fdc.home.workstation</groupId>
-			<artifactId>home-workstation-domain</artifactId>
-			<version>1.0.0</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>com.fdc.platform.common.yfutil</groupId>
-			<artifactId>yfutil</artifactId>
-			<version>1.0.1</version>
-		</dependency>
-
-
-		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
 			<version>1.10</version>
@@ -139,6 +109,29 @@
 			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>
 		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+		</dependency>
+
+		<!--<dependency>
+			<groupId>org.elasticsearch.plugin</groupId>
+			<artifactId>transport-netty4-client</artifactId>
+			<version>6.1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch</artifactId>
+			<version>6.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.elasticsearch.client</groupId>
+			<artifactId>transport</artifactId>
+			<version>6.1.2</version>
+		</dependency>-->
 
 
 	</dependencies>

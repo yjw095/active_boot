@@ -35,7 +35,13 @@ spring:
     sentinel:
       master: mymaster
       nodes: 192.168.1.189:26381,192.168.1.189:26382,192.168.1.189:26383
-
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+      local: false
+      cluster-name: my-application
+      cluster-nodes: 192.168.1.189:9600,192.168.1.159:9600
   jpa:
     hibernate:
       ddl-auto: none #jdbc 取消hibernate

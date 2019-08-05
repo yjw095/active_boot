@@ -1,9 +1,9 @@
+/*
 package com.fdc.active.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.fdc.platform.common.yfutil.HttpHelper;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.http.client.ResponseHandler;
@@ -13,10 +13,6 @@ import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.Element;
-import org.dom4j.io.SAXReader;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -37,9 +33,11 @@ import java.net.URLEncoder;
 import java.security.*;
 import java.util.*;
 
+*/
 /**
  * Created by Administrator on 2018/6/25.
- */
+ *//*
+
 @Controller
 public class WeixinController {
 
@@ -278,12 +276,14 @@ public class WeixinController {
 
 
 
-    /**
+    */
+/**
      *  微信公众号 发消息前的授权
      * @param req
      * @param resp
      * @return
-     */
+     *//*
+
     @RequestMapping("/weixinServlet5")
     public void weixinAuth(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -304,12 +304,14 @@ public class WeixinController {
     }
 
 
-    /**
+    */
+/**
      *  微信公众号 发消息
      * @param req
      * @param resp
      * @return
-     */
+     *//*
+
     @ResponseBody
     @RequestMapping("/weixinMsg5")
     public Map<String,Object> msg5(HttpServletRequest req, HttpServletResponse resp, Integer a){
@@ -435,12 +437,14 @@ public class WeixinController {
     }
 
 
-    /***
+    */
+/***
      * 小程序调用
      * @param req
      * @param resp
      * @return
-     */
+     *//*
+
     @ResponseBody
     @RequestMapping("/weixinMsg3")
     public Map<String,Object> msg2(HttpServletRequest req, HttpServletResponse resp){
@@ -613,3 +617,4 @@ public class WeixinController {
     }
 
 }
+*/

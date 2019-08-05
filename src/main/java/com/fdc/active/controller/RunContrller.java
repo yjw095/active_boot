@@ -3,7 +3,6 @@ package com.fdc.active.controller;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.fdc.active.service.BuildService;
 import com.fdc.active.service.RentHouseService;
-import com.fdc.home.workstation.service.inter.SyncResidentialFrontService;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +23,8 @@ public class RunContrller implements InitializingBean {
     BuildService buildService;
     @Autowired
     private RentHouseService rentHouseService;
-    @Reference(version = "${hello.service.version}")
-    private SyncResidentialFrontService syncResidentialFrontService ;
+   // @Reference(version = "${hello.service.version}")
+  //  private SyncResidentialFrontService syncResidentialFrontService ;
     @Value(value = "${spring.profiles.active}")
     String profiles ;
     @Value(value = "${hello.service.version}")

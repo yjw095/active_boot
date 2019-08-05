@@ -6,7 +6,6 @@ import com.fdc.active.dao.*;
 import com.fdc.active.domain.Building;
 import com.fdc.active.domain.ResidentialInfo;
 import com.fdc.active.domain.Unit;
-import com.fdc.home.workstation.service.inter.SyncResidentialFrontService;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

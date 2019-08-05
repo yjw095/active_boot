@@ -3,8 +3,6 @@ package com.fdc.active.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.fdc.active.domain.SHhouse;
-import com.fdc.home.workstation.domain.HouseSource;
-import com.fdc.platform.common.yfutil.HttpHelper;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.config.RequestConfig;
@@ -41,17 +39,6 @@ import java.util.regex.Pattern;
 public class SHAController {
 
     private static final Logger log = org.slf4j.LoggerFactory.getLogger(SHAController.class);
-
-
-    @RequestMapping(value ="/activeboot.addhouse", method = RequestMethod.POST)
-    @ResponseBody
-    public String updateOne(HouseSource house)throws Exception{
-        log.info("getAcreage:{}" ,house.getAcreage());
-        String url = "http://127.0.0.1:8080/homebaseapi/homebaseapi.restful.inter.house.addbytoken";
-        SHhouse house2 = JSON.parseObject(JSON.toJSONString(house),SHhouse.class);
-        String res = sendPost(url,house2);
-        return "the result:" +res ;
-    }
 
 
     public static void main(String[] args) throws Exception{

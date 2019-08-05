@@ -2,8 +2,6 @@ package com.fdc.active.service;
 
 import com.alibaba.dubbo.common.io.StreamUtils;
 import com.alibaba.dubbo.config.annotation.Reference;
-import com.fdc.home.workstation.service.inter.SyncHouseRentService;
-import com.fdc.home.workstation.service.inter.SyncResidentialFrontService;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -21,17 +19,17 @@ public class RentHouseService {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
-    @Reference(version="test1.0.0")
-    SyncHouseRentService syncHouseRentService ;
-    @Reference(version = "${hello.service.version}")
-    private SyncResidentialFrontService syncResidentialFrontService ;
+    //@Reference(version="test1.0.0")
+    //SyncHouseRentService syncHouseRentService ;
+   // @Reference(version = "${hello.service.version}")
+   // private SyncResidentialFrontService syncResidentialFrontService ;
     private static final Logger log = org.slf4j.LoggerFactory.getLogger(RentHouseService.class);
 
 
     public int sysRes2(String id){
         log.info("id:{}" ,id);
-        boolean b =syncResidentialFrontService.syncResidential(id,"42_01");
-        log.info("b:{}" ,b);
+      //  boolean b =syncResidentialFrontService.syncResidential(id,"42_01");
+      //  log.info("b:{}" ,b);
         return 0;
     }
 
@@ -73,41 +71,6 @@ public class RentHouseService {
     }
 
 
-
-    public int sysHouse(){
-        String sharding_id = "42_01";
-        String sql = "select id from house_rent where  operate_label = 'c56' and `info_from_type` = '1' and publish_state='2' and del_state = '0'";
-        String sql2 = "update house_rent set operate_label = null,operate_label_desc = null where operate_label = 'c56' and `info_from_type` = '1' and publish_state='2' and del_state = '0'";
-        List<String> list = jdbcTemplate.queryForList(sql,String.class);
-        int c = jdbcTemplate.update(sql2);
-        log.info("update :{}" ,c);
-        list.stream().forEach(s -> {
-            try {
-                boolean b = syncHouseRentService.syncHouseRent(s, sharding_id);
-                log.info("total:{}  b:{}" ,list.size() ,b);
-            }catch (Exception e){
-                log.error("" ,e);
-            }
-        });
-        log.info("执行 品牌公寓数据");
-        sysHouse2();
-        return 0;
-    }
-
-    public int sysHouse2(){
-        String sharding_id = "42_01";
-        String sql = "select id from house_rent where `info_from_type` = '3' and  publish_state='2' and del_state = '0' ";
-        List<String> list = jdbcTemplate.queryForList(sql,String.class);
-        list.stream().forEach(s -> {
-            try {
-                boolean b = syncHouseRentService.syncHouseRent(s, sharding_id);
-                log.info("total:{}  b:{}" ,list.size() ,b);
-            }catch (Exception e){
-                log.error("" ,e);
-            }
-        });
-        return 0;
-    }
 
 
 }
