@@ -34,6 +34,11 @@ dubbo:
   version: pre1.0.0
 
 
-
+esearch:
+  ip: 10.45.50.107:9300;10.46.228.87:9300
+  #集群名称,不配连不上集群
+  clusterName: my-application
+  index: house_pre
+  type: house_front
 
 

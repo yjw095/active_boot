@@ -1,0 +1,6 @@
+集成redis
+https://blog.csdn.net/qq_21046665/article/details/79692390
+https://www.cnblogs.com/zhaopengcheng/p/8597079.html
+https://my.oschina.net/mdxlcj/blog/1858691
+集成es6
+http://www.json119.com/spring-boot2-xji-cheng-es6-x/

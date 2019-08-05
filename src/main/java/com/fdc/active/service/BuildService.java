@@ -33,12 +33,7 @@ public class BuildService {
     NhsHousePriceResultMapper nhsHousePriceResultMapper;
     @Autowired
     ResidentialInfoMapper residentialInfoMapper;
-    @Reference(version="test1.0.0")
-   // @Reference(version="${dubbo.version}")
-    SyncResidentialFrontService syncResidentialFrontService;
 
-    @Value(value = "${dubbo.version}")
-    String version ;
 
     private static final Logger log = org.slf4j.LoggerFactory.getLogger(BuildService.class);
 
@@ -49,9 +44,6 @@ public class BuildService {
         Building build = new Building();
         build.setResidentialInfoId(info.getId());
         int a = updateBuild(build);
-        log.info("version:{} " ,version);
-        boolean b = syncResidentialFrontService.syncResidential(info.getId(),"42_01");
-        log.info(" b:{}" , b);
         return a;
     }
 

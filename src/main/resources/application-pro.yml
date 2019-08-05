@@ -33,7 +33,12 @@ spring:
 dubbo:
   version: 1.0.0
 
-
+esearch:
+  ip: 10.26.110.200:9600;10.26.110.191:9600
+  #集群名称,不配连不上集群
+  clusterName: my-application
+  index: house
+  type: house_front
 
 
 

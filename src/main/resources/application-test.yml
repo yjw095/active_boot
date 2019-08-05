@@ -1,11 +1,14 @@
 
 spring:
   dubbo:
+    consumer:
+      client: netty4
     application:
      name: cosumer
     registry:
      address: zookeeper://192.168.1.165:2181
     scan: com.fdc.active.service
+
 
 #db
   datasource:
@@ -28,10 +31,14 @@ spring:
     testOnReturn: false
     poolPreparedStatements: true
     maxOpenPreparedStatements: 20
+  redis:
+    sentinel:
+      master: mymaster
+      nodes: 192.168.1.189:26381,192.168.1.189:26382,192.168.1.189:26383
 
-
-dubbo:
-  version: test1.0.0
+  jpa:
+    hibernate:
+      ddl-auto: none #jdbc 取消hibernate
 
 
 

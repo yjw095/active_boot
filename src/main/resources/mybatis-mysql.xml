@@ -15,7 +15,7 @@
 
         <!-- !!!! Database Configurations !!!! -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.1.145:3308/home_workstation_test?autoReconnect=true&amp;useUnicode=true&amp;allowMultiQueries=true&amp;characterEncoding=UTF-8"
+                        connectionURL="jdbc:mysql://192.168.1.189:3306/home_workstation_test?autoReconnect=true&amp;useUnicode=true&amp;allowMultiQueries=true&amp;characterEncoding=UTF-8"
                         userId="root" password="123456"/>
 
         <javaTypeResolver>
@@ -39,7 +39,7 @@
         </javaClientGenerator>
 
         <!-- !!!! Table Configurations !!!! -->
-        <table tableName="residential_info" enableCountByExample="false" enableDeleteByExample="false"
+        <table tableName="wx_form_id" enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false"
                enableUpdateByExample="false"/>
 
