@@ -5,6 +5,7 @@ import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
@@ -37,6 +38,9 @@ public class TestRedisController {
     @Autowired
     AmqpTemplate rabbitTemplate;
 
+    @Value("#{'${dataFields}'.split(',')}")
+    List<String> fields ;
+
     @RequestMapping(value ="/activeboot.redis2", method = RequestMethod.GET)
     @ResponseBody
     public String home2(String key,String get){
@@ -56,7 +60,7 @@ public class TestRedisController {
         Map<String,Object> map = new HashMap<>();
         map.put("data","[]");
         QueryBuilder qb = QueryBuilders.termQuery("pinyin", pinyin);
-        SearchQuery searchQuery = new NativeSearchQueryBuilder().withQuery(qb).withPageable(new PageRequest(0, 20)).build();
+        SearchQuery searchQuery = new NativeSearchQueryBuilder().withQuery(qb).withFields(fields.toArray(new String[0])).withPageable(new PageRequest(0, 20)).build();
 
         List<ResidentialInfoEs> list = elasticsearchTemplate.queryForList(searchQuery ,ResidentialInfoEs.class);
         map.put("data", list);
