@@ -35,6 +35,7 @@ spring:
     sentinel:
       master: mymaster
       nodes: 192.168.1.189:26381,192.168.1.189:26382,192.168.1.189:26383
+    database: 3
   data:
     elasticsearch:
       repositories:
