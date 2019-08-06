@@ -45,11 +45,11 @@ public class TestRedisController {
     @ResponseBody
     public String home2(String key,String get){
         ValueOperations<String, String> opsForValue = redisTemplate.opsForValue();
-        if(get == null){
-            opsForValue.set( key,"cluster test",5, TimeUnit.MINUTES);
-        }
         String str = opsForValue.get(key);
-        // Object obj = redisService.get(key);
+        if(get == null && str == null){
+            opsForValue.set( key,"cluster test",5, TimeUnit.MINUTES);
+            str = opsForValue.get(key);
+        }
         return "你好，world  " + str;
     }
 

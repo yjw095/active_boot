@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 /**
  * Created by Administrator on 2019/8/5.
  */
-@Component
-@RabbitListener(queues = "demoMq")
+//@Component
+//@RabbitListener(queues = "demoMq")
 public class MqClientController {
 
     @Autowired

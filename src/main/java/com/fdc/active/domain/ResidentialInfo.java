@@ -1,6 +1,8 @@
 package com.fdc.active.domain;
 
-public class ResidentialInfo {
+import java.io.Serializable;
+
+public class ResidentialInfo implements Serializable{
     private String id;
 
     private String residentialName;
