@@ -1,12 +1,15 @@
 package com.fdc.active.controller;
 
 import com.fdc.active.domain.es.ResidentialInfoEs;
+import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.index.query.TermQueryBuilder;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.data.elasticsearch.core.query.SearchQuery;
@@ -59,8 +62,12 @@ public class TestRedisController {
     public Map<String,Object> es(String pinyin){
         Map<String,Object> map = new HashMap<>();
         map.put("data","[]");
-        QueryBuilder qb = QueryBuilders.termQuery("pinyin", pinyin);
-        SearchQuery searchQuery = new NativeSearchQueryBuilder().withQuery(qb).withFields(fields.toArray(new String[0])).withPageable(new PageRequest(0, 20)).build();
+        BoolQueryBuilder bqb = new BoolQueryBuilder() ;
+        TermQueryBuilder qb = QueryBuilders.termQuery("pinyin", pinyin);
+        bqb.must(qb);
+
+        Pageable page = PageRequest.of(0, 20);
+        SearchQuery searchQuery = new NativeSearchQueryBuilder().withQuery(bqb).withFields(fields.toArray(new String[0])).withPageable(page).build();
 
         List<ResidentialInfoEs> list = elasticsearchTemplate.queryForList(searchQuery ,ResidentialInfoEs.class);
         map.put("data", list);
