@@ -4,6 +4,8 @@ import com.fdc.active.domain.ResidentialInfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 @Mapper
 public interface ResidentialInfoMapper {
     int deleteByPrimaryKey(String id);
@@ -21,5 +23,7 @@ public interface ResidentialInfoMapper {
     int updateByPrimaryKey(ResidentialInfo record);
 
     ResidentialInfo selectByPinyin(@Param("pinyin") String pinyin);
+
+    List<ResidentialInfo> getList();
 
 }

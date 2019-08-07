@@ -1,7 +1,5 @@
-package com.fdc.active.service;
+package com.fdc.active.service.impl;
 
-import com.alibaba.dubbo.common.io.StreamUtils;
-import com.alibaba.dubbo.config.annotation.Reference;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

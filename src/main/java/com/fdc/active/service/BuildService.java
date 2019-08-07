@@ -18,21 +18,10 @@ import java.util.stream.Collectors;
 /**
  * Created by Administrator on 2018/5/28.
  */
-@Service("buildService")
-public class BuildService {
+public interface BuildService {
 
 
-    @Autowired
-    ResidentialInfoMapper residentialInfoMapper;
-
-
-    private static final Logger log = org.slf4j.LoggerFactory.getLogger(BuildService.class);
-
-    @Cacheable(value="info", key="#pinyin")
-    public ResidentialInfo selectByPinyin(String pinyin){
-        ResidentialInfo info = residentialInfoMapper.selectByPinyin(pinyin);
-        return info;
-    }
+    public ResidentialInfo selectByPinyin(String pinyin);
 
 
 

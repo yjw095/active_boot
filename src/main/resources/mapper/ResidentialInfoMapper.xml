@@ -561,4 +561,10 @@
 
   </select>
 
+  <select id="getList"  resultMap="BaseResultMap">
+     SELECT * from residential_info
+     limit 5
+  </select>
+
+
 </mapper>

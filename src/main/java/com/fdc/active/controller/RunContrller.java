@@ -1,13 +1,11 @@
 package com.fdc.active.controller;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.fdc.active.service.BuildService;
-import com.fdc.active.service.RentHouseService;
+import com.fdc.active.service.impl.RentHouseService;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 
 import javax.annotation.PostConstruct;
