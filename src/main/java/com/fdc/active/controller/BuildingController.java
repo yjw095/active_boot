@@ -1,6 +1,7 @@
 package com.fdc.active.controller;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fdc.active.domain.ResidentialInfo;
 import com.fdc.active.service.BuildService;
 import org.slf4j.Logger;
@@ -28,7 +29,7 @@ public class BuildingController {
 
 
     @RequestMapping(value ="/activeboot.getone", method = RequestMethod.GET)
-    public ModelAndView updateOne(String pinyin){
+    public ModelAndView getone(String pinyin){
         ModelAndView mode = new ModelAndView();
         mode.setViewName("house");
         ResidentialInfo info = buildService.selectByPinyin(pinyin);
@@ -36,7 +37,14 @@ public class BuildingController {
         return mode;
     }
 
-
+    @RequestMapping(value ="/activeboot.getone2", method = RequestMethod.GET)
+    public ModelAndView getone2(String pinyin){
+        ModelAndView mode = new ModelAndView();
+        mode.setViewName("house");
+        ResidentialInfo info = buildService.selectByPinyin(pinyin);
+        mode.addObject("info" , info);
+        return mode;
+    }
 
 
 
